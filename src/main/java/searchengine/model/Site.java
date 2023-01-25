@@ -10,7 +10,7 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "enum")
+    @Column(columnDefinition = "ENUM('INDEXING', 'INDEXED', 'FAILED')")
     private Status status;
     @Column(name="status_time")
     private Date statusTime;

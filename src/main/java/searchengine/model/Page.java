@@ -10,7 +10,7 @@ public class Page {
     private int id;
     @ManyToOne(cascade = CascadeType.ALL)
     private Site site;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT NOT NULL, UNIQUE KEY pathIndex (path(512), site_id)")
     private String path;
     private int code;
     @Column(columnDefinition = "MEDIUMTEXT")
