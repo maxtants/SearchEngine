@@ -8,13 +8,17 @@ public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn (name="site_id")
     private Site site;
-    @Column(columnDefinition = "TEXT NOT NULL, UNIQUE KEY pathIndex (path(512), site_id)")
+    //@Column(columnDefinition = "TEXT NOT NULL, UNIQUE KEY pathIndex (path(512), site_id)")
     private String path;
     private int code;
     @Column(columnDefinition = "MEDIUMTEXT")
     private String content;
+
+    public Page() {
+    }
 
     public int getId() {
         return id;

@@ -1,7 +1,10 @@
 package searchengine.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "site")
@@ -20,6 +23,18 @@ public class Site {
     private String url;
     @Column(columnDefinition = "VARCHAR(255)")
     private String name;
+    @OneToMany(mappedBy = "site")
+    private List<Page> pages;
+    public List<Page> getPages() {
+        return pages;
+    }
+
+    public void setPages(List<Page> pages) {
+        this.pages = pages;
+    }
+
+    public Site() {
+    }
 
     public int getId() {
         return id;
